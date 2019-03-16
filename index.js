@@ -53,7 +53,7 @@ function cb (err, response, body) {
 
 function getWeather(city) {
 	result=undefined;
-	var url='https://api.openweathermap.org/data/2.5/weather?q={city},in&appid=0863e78ab274262be969bc8d63fdba29';
+	var url='https://api.openweathermap.org/data/2.5/weather?q=${city},in&appid=0863e78ab274262be969bc8d63fdba29';
 	console.log(url);
 	var req = request(url, cb);
 	while(result===undefined) {
