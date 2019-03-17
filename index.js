@@ -56,7 +56,8 @@ function cb (err, response, body) {
 	}
 	else
 	{
-		result='Right now the temprature in '+weather.name+' is '+weather.main.temp+ ' degree with '+weather.weather[0].description;
+		var degreeCelsius = (parseFloat(weather.main.temp) - 32) * 5/9;
+		result='Right now the temprature in '+weather.name+' is '+degreeCelsius.toFixed(2)+ ' degree with '+weather.weather[0].description;
 	}
 }
 
