@@ -8,9 +8,9 @@ app.use(
     extended: true
   })
 );
-// var path=require("path");
-// var server=require('http').createServer(app);
-// var io= require('socket.io') (server);
+var path=require("path");
+var server=require('http').createServer(app);
+var io= require('socket.io') (server);
 
 //******* WEBHOOK******//
 
@@ -22,10 +22,12 @@ app.post('/webhook', function(req, res) {
 	console.log(req.body);
 	console.log('Got geo city parameters from the dialogflow ' + req.body.queryResult.parameters['geo-city']);
 		var city= req.body.queryResult.parameters['geo-city'];
+
+		// var city = "Bangalore"
 		var w= getWeather(city);
 		let response= " ";// Default response from the webhook to show its working
 		let responseObj={
-                			"fulfillmentText": response
+                			"fulfillmentText": w
                 			,"fulfillmentMessage":[{"text": {"text":[w]}}]
                 			,"source":""
                 		}
@@ -51,13 +53,13 @@ function cb (err, response, body) {
 	}
 	else
 	{
-		result='Right now its '+weather.main.temp+ 'degree with '+weather.weather[0].description;
+		result='Right now its '+weather.main.temp+ ' degree with '+weather.weather[0].description;
 	}
 }
 
 function getWeather(city) {
 	result=undefined;
-	var url='http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}';
+	var url='http://api.openweathermap.org/data/2.5/weather?q='+city+'&units=imperial&appid=0863e78ab274262be969bc8d63fdba29';
 	console.log(url);
 	var req = request(url, cb);
 	while(result===undefined) {
@@ -66,6 +68,6 @@ function getWeather(city) {
 return result;
 }
 
-app.listen(process.env.PORT || 8000, function() {
+app.listen(process.env.PORT || 5952, function() {
   console.log("Server up and listening");
 });
