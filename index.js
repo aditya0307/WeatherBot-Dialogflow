@@ -42,7 +42,8 @@ app.post('/webhook', function(req, res) {
 //******Weather API*****//
 
 var apiKey='0863e78ab274262be969bc8d63fdba29';
-var result
+var result;
+var city;
 
 function cb (err, response, body) {
 	if(err){
@@ -55,7 +56,7 @@ function cb (err, response, body) {
 	}
 	else
 	{
-		result='Right now its '+weather.main.temp+ ' degree with '+weather.weather[0].description;
+		result='Right now the temprature in '+city+' is '+weather.main.temp+ ' degree with '+weather.weather[0].description;
 	}
 }
 
