@@ -30,14 +30,14 @@ app.post('/webhook', function(req, res) {
 		let response= " ";// Default response from the webhook to show its working
 		let responseObj={
                 			"fulfillmentText": w
-                			,"fulfillmentMessage":[{"text": {"text":[w]}}]
+                			,"fulfillmentMessages":[{"text": {"text":[w]}}]
                 			,"source":""
                 		}
         console.log('Here is the response to the dialogflow');
         console.log(responseObj);
         return res.json(responseObj);
                 //res.send(JSON.stringify);
-})
+});
 
 //******Weather API*****//
 
