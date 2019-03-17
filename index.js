@@ -1,3 +1,5 @@
+"use strict";
+
 var request= require('request');
 var express=require('express');
 var bodyparser= require('body-parser');
@@ -8,9 +10,9 @@ app.use(
     extended: true
   })
 );
-var path=require("path");
-var server=require('http').createServer(app);
-var io= require('socket.io') (server);
+// var path=require("path");
+// var server=require('http').createServer(app);
+// var io= require('socket.io') (server);
 
 //******* WEBHOOK******//
 
