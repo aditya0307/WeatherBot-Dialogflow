@@ -56,7 +56,7 @@ function cb (err, response, body) {
 	}
 	else
 	{
-		result='Right now the temprature in '+city+' is '+weather.main.temp+ ' degree with '+weather.weather[0].description;
+		result='Right now the temprature in '+weather.name+' is '+weather.main.temp+ ' degree with '+weather.weather[0].description;
 	}
 }
 
