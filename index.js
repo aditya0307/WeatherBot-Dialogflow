@@ -3,10 +3,14 @@ var express=require('express');
 var bodyparser= require('body-parser');
 var app=express();
 app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({extended: true}));
-var path=require("path");
-var server=require('http').createServer(app);
-var io= require('socket.io') (server);
+app.use(
+  bodyparser.urlencoded({
+    extended: true
+  })
+);
+// var path=require("path");
+// var server=require('http').createServer(app);
+// var io= require('socket.io') (server);
 
 //******* WEBHOOK******//
 
@@ -61,3 +65,7 @@ function getWeather(city) {
 	}
 return result;
 }
+
+app.listen(process.env.PORT || 8000, function() {
+  console.log("Server up and listening");
+});
