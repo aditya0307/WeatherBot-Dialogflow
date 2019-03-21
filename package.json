@@ -1,7 +1,7 @@
 {
   "name": "weather-bot",
   "version": "1.0.0",
-  "description": "Wather bot sample",
+  "description": "Weather bot sample",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
